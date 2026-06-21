@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息卡片 · 快三平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f3f4f6;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            color: #1f2937;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 1120px;
+            width: 100%;
+        }
+        /* header / hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 2.8rem 2.2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e6e9ed;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #111827;
+        }
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #4b5563;
+            max-width: 620px;
+            margin: 1rem auto 0;
+            border-top: 1px solid #eef0f3;
+            padding-top: 1.2rem;
+        }
+        .hero .sub a {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed #93b4f5;
+        }
+        .hero .sub a:hover {
+            color: #1e40af;
+            border-bottom-style: solid;
+        }
+        /* card grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.4rem;
+        }
+        @media (min-width: 640px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 960px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e6e9ed;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 1.8rem 1.5rem;
+            transition: box-shadow 0.15s ease, transform 0.12s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0,0,0,0.02);
+            transform: translateY(-2px);
+        }
+        .card-icon {
+            font-size: 2rem;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        .card .meta-tag {
+            display: inline-block;
+            background: #f0f2f5;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #4b5563;
+            margin-top: 0.3rem;
+            border: 1px solid #e2e6ec;
+        }
+        /* 适合人群卡片独立行 */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 2rem 0 1.2rem 0;
+            font-weight: 500;
+            color: #374151;
+        }
+        .section-label span {
+            background: #ffffff;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #dee2e8;
+            font-size: 0.85rem;
+            color: #1f2937;
+        }
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        @media (min-width: 500px) {
+            .audience-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .audience-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #e6e9ed;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        .audience-card .emoji {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        .audience-card h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        .audience-card p {
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+        /* 自然链接段落 */
+        .link-note {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e6e9ed;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin-bottom: 1.8rem;
+        }
+        .link-note p {
+            font-size: 1rem;
+            color: #1f2937;
+            margin-bottom: 0.4rem;
+        }
+        .link-note a {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #bcd0f5;
+        }
+        .link-note a:hover {
+            color: #1e40af;
+            border-bottom: 1px solid #1e40af;
+        }
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e6e9ed;
+            padding: 1.6rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            margin-top: 1.2rem;
+        }
+        .faq-mini details {
+            border-bottom: 1px solid #eff2f6;
+            padding: 0.6rem 0;
+        }
+        .faq-mini details:last-child {
+            border-bottom: none;
+        }
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1f2937;
+            padding: 0.2rem 0;
+        }
+        .faq-mini summary::-webkit-details-marker {
+            color: #6b7280;
+        }
+        .faq-mini .answer {
+            font-size: 0.9rem;
+            color: #4b5563;
+            padding: 0.4rem 0 0.2rem 0.8rem;
+        }
+        .footer-note {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.8rem;
+            padding: 2rem 0 0.5rem;
+            border-top: 1px solid #e2e6ec;
+            margin-top: 1.8rem;
+        }
+        .footer-note a {
+            color: #4b5563;
+            text-decoration: none;
+            border-bottom: 1px dotted #9ca3af;
+        }
+        .footer-note a:hover {
+            color: #1f2937;
+        }
+        .badge-light {
+            background: #eef0f3;
+            border-radius: 100px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            color: #374151;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero 主视觉 -->
+    <div class="hero">
+        <h1>📇 信息卡片 · 快三平台</h1>
+        <div class="sub">
+            再次收藏 · 持续关注 · 轻量导航<br>
+            如果您希望快速回到熟悉的信息界面，不妨将 <a href="https://zh-kuaisan.com" target="_blank" rel="noopener noreferrer">快三平台</a> 加入浏览器书签。
+        </div>
+    </div>
+
+    <!-- 用途卡片 三列 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon">📌</div>
+            <h3>快速收藏</h3>
+            <p>将常用工具与数据页面统一收纳，通过固定入口再次访问，减少重复搜索的时间成本。</p>
+            <span class="meta-tag">bookmark 友好</span>
+        </div>
+        <div class="card">
+            <div class="card-icon">📋</div>
+            <h3>结构索引</h3>
+            <p>频道与分类采用扁平化卡片布局，适合频繁查阅、横向对比不同模块的更新内容。</p>
+            <span class="meta-tag">信息架构</span>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔁</div>
+            <h3>持续跟进</h3>
+            <p>通过固定链接保持对动态区域的关注，无需每次手动定位，提升信息获取效率。</p>
+            <span class="meta-tag">regular visit</span>
+        </div>
+    </div>
+
+    <!-- 适合人群 双卡片 -->
+    <div class="section-label">
+        <span>👥 适合人群</span>
+    </div>
+    <div class="audience-grid">
+        <div class="audience-card">
+            <div class="emoji">🧭</div>
+            <div>
+                <h4>高频回访者</h4>
+                <p>日常需要浏览固定数据或报表，倾向于使用收藏夹而非搜索引擎的用户。</p>
+            </div>
+        </div>
+        <div class="audience-card">
+            <div class="emoji">🗂️</div>
+            <div>
+                <h4>信息整理偏好者</h4>
+                <p>习惯将常用平台归类收藏，并希望页面本身提供简洁的导航与摘要说明。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 自然链接段落（嵌入快三平台） -->
+    <div class="link-note">
+        <p>许多用户将在日常浏览中把 <a href="https://zh-kuaisan.com" target="_blank" rel="noopener noreferrer">快三平台</a> 添加至书签栏。当您需要快速定位到熟悉的页面结构时，收藏夹内的固定链接可节省逐级导航的步骤。本页作为信息卡片式聚合，同样适合保存为起始页或参考页。</p>
+        <p style="margin-top:0.6rem; font-size:0.9rem; color:#6b7280;">📎 您也可以右键当前页面，选择“加入书签”以便后续再次访问。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <details>
+            <summary>❓ 这个页面与主站的关系是什么？</summary>
+            <div class="answer">本页为介绍性卡片页，提供关于 <strong>快三平台</strong> 的用途说明与适用场景。主站功能与详细内容请通过上方链接直接访问。</div>
+        </details>
+        <details>
+            <summary>📑 如何保持对更新内容的关注？</summary>
+            <div class="answer">建议将页面加入浏览器书签，或定期通过收藏夹中的链接再次访问。结构化的卡片布局有助于快速定位感兴趣的区域。</div>
+        </details>
+        <details>
+            <summary>🔖 收藏后页面内容会变化吗？</summary>
+            <div class="answer">本页面为基础介绍页，主站区域可能存在动态更新。但收藏链接指向的固定地址不会改变，您可随时通过书签返回。</div>
+        </details>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span class="badge-light">信息卡片 · 简洁导航</span>
+        &nbsp;&nbsp;|&nbsp;&nbsp; 
+        <a href="https://zh-kuaisan.com" target="_blank" rel="noopener noreferrer">快三平台</a>
+        &nbsp;·&nbsp; 持续关注
+    </div>
+</div>
+</body>
+</html>
