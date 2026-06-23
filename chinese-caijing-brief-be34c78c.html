@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彩经网 · 日常查询与对照</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf9f7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #2c3e4f;
+            line-height: 1.7;
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+            background: #ffffff;
+            padding: 3rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0.75rem;
+            }
+            .page {
+                padding: 2rem 1.25rem;
+                border-radius: 20px;
+                margin: 1rem 0;
+            }
+        }
+
+        /* hero */
+        .hero {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #eae7e2;
+            padding-bottom: 2rem;
+        }
+
+        .hero__label {
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            color: #9a8c7f;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            font-weight: 400;
+        }
+
+        .hero__title {
+            font-size: 2.2rem;
+            font-weight: 350;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+            color: #1f2a36;
+            margin-bottom: 1rem;
+        }
+
+        .hero__sub {
+            font-size: 1rem;
+            color: #5f6b78;
+            max-width: 34em;
+        }
+
+        .hero__sub em {
+            font-style: normal;
+            background: #f1ede8;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            color: #2c3e4f;
+        }
+
+        /* section */
+        .section {
+            margin-bottom: 2.6rem;
+        }
+
+        .section:last-of-type {
+            margin-bottom: 2rem;
+        }
+
+        .section__title {
+            font-size: 1.2rem;
+            font-weight: 450;
+            letter-spacing: 0.01em;
+            color: #1f2a36;
+            margin-bottom: 0.9rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section__title::after {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: #c4b8aa;
+            margin-top: 6px;
+        }
+
+        .section p {
+            font-size: 0.98rem;
+            color: #3d4a59;
+            margin-bottom: 1.1rem;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .quiet-note {
+            font-size: 0.9rem;
+            color: #7c8a99;
+            background: #f5f3f0;
+            padding: 1.2rem 1.6rem;
+            border-radius: 16px;
+            margin-top: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .quiet-note a {
+            color: #2c3e4f;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c4b8aa;
+            font-weight: 400;
+        }
+
+        .quiet-note a:hover {
+            color: #a08570;
+            text-decoration-color: #a08570;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eae7e2;
+            font-size: 0.9rem;
+            color: #7c8a99;
+            text-align: left;
+            letter-spacing: 0.01em;
+        }
+
+        .footer-note a {
+            color: #2c3e4f;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c4b8aa;
+            font-weight: 400;
+        }
+
+        .footer-note a:hover {
+            color: #a08570;
+            text-decoration-color: #a08570;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .bullet-list li {
+            padding: 0.3rem 0 0.3rem 1.4rem;
+            position: relative;
+            font-size: 0.96rem;
+            color: #3d4a59;
+        }
+
+        .bullet-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: #b3a79a;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eae7e2;
+            margin: 2rem 0 1rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <div class="hero__label">杂志 · 日常查询与对照</div>
+        <h1 class="hero__title">彩经网<br>数据查询与延伸阅读</h1>
+        <div class="hero__sub">
+            不是所有查询都需要反复搜索。<em>清晰的对照</em> 往往只需一个入口。
+        </div>
+    </div>
+
+    <!-- 第一段：日常查询 -->
+    <div class="section">
+        <h2 class="section__title">从一次查询开始</h2>
+        <p>
+            很多人在接触数字、走势或历史记录时，第一反应是打开搜索引擎，输入关键词，然后在一堆混杂的信息里翻找。时间一长，收藏夹越来越乱，但真正需要的数据依然散落在各处。<a href="https://chinese-caijing.com" style="color:#2c3e4f; text-decoration: underline; text-underline-offset:3px; text-decoration-color:#c4b8aa;">彩经网</a> 的出发点很简单：把那些高频出现的查询入口、对照工具和整理过的内容，放在同一个安静的页面里，让每一次返回都更直接。
+        </p>
+        <p>
+            你不必记住复杂的参数或路径。打开页面，找到需要的类别，剩下的就是浏览和对比。这种体验更像翻看一本轻便的手册，而不是面对一张无穷无尽的表格。
+        </p>
+    </div>
+
+    <!-- 第二段：对照与延伸 -->
+    <div class="section">
+        <h2 class="section__title">对照的价值，往往在细节里</h2>
+        <p>
+            单看一组数字很难判断趋势，但把不同时期、不同维度的信息并排放在一起，很多模式就变得清晰。彩经网在整理内容时，会特意保留多组可对照的维度——时间、类别、变化幅度——让读者自己观察，而不是直接给出结论。
+        </p>
+        <p>
+            延伸阅读也是同样逻辑。每一条补充内容都围绕同一个主题展开，不堆砌无关词条，不制造信息噪音。你可以在一个主题下连续阅读几段相关的说明，也可以跳转到另一个类别，继续自己的对照节奏。
+        </p>
+        <div class="quiet-note">
+            例如，在查询某一周期的数据时，页面会同时显示相邻周期的变化摘要。这种对照不需要额外操作，页面已经在后台完成了整理。
+        </div>
+    </div>
+
+    <!-- 第三段：场景与使用习惯 -->
+    <div class="section">
+        <h2 class="section__title">适合安静浏览的场景</h2>
+        <p>
+            彩经网并不追求让读者停留很久。相反，它的设计目标是：当你需要某个对照信息时，能够快速定位，看完就离开，下次再来时依然能保持同样的效率。这种克制的节奏，适合在工作间隙、复盘整理或例行查看时使用。
+        </p>
+        <ul class="bullet-list">
+            <li>日常数据对照，不跳转多个页面</li>
+            <li>主题式延伸阅读，减少重复搜索</li>
+            <li>页面结构稳定，适合定期回访</li>
+        </ul>
+        <p style="margin-top:0.8rem;">
+            不需要注册，不需要关注，也不需要记录任何偏好。页面本身就是一个自足的工具。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要式提示 -->
+    <hr>
+    <div style="font-size:0.93rem; color:#5f6b78; margin-bottom:0.8rem;">
+        <span style="font-weight:450; color:#1f2a36;">常见问题摘要</span> — 页面会定期更新内容分类；所有对照数据均来自公开整理；无需登录即可使用全部功能。
+    </div>
+
+    <!-- 页尾访问提示，自然嵌入链接 -->
+    <div class="footer-note">
+        如果你需要更完整的分类和延伸内容，可以试试直接打开 <a href="https://chinese-caijing.com">彩经网</a>。页面的结构始终围绕查询与对照展开，每次回访都能保持熟悉的节奏。
+    </div>
+
+</div>
+</body>
+</html>
