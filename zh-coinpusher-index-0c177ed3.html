@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>推币机 · 主题知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f3ed;
+      font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+      color: #3b3a36;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .page-container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: #fdfbf8;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      padding: 2.5rem 2rem;
+    }
+
+    /* 标题区 —— 目录感 */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.8rem;
+      border-bottom: 1px dashed #d9d0c5;
+      padding-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #4e4942;
+    }
+
+    .hero .sub {
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      color: #7d746b;
+      border-top: 1px dotted #e2dad0;
+      padding-top: 0.6rem;
+      display: inline-block;
+    }
+
+    /* 目录风格的网格区块 */
+    .directory-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.5rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .directory-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+      .page-container {
+        padding: 1.5rem 1rem;
+      }
+    }
+
+    .info-card {
+      background: #f9f6f1;
+      border-left: 6px solid #c8b9a9;
+      padding: 1.2rem 1.4rem 1.4rem 1.4rem;
+      border-radius: 0 18px 18px 0;
+      transition: background 0.2s;
+    }
+
+    .info-card:hover {
+      background: #f4efe8;
+    }
+
+    .info-card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #4f463d;
+      margin-bottom: 0.6rem;
+      border-bottom: 1px dotted #d6ccc0;
+      padding-bottom: 0.3rem;
+      letter-spacing: 0.5px;
+    }
+
+    .info-card p {
+      font-size: 0.95rem;
+      color: #59534b;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-card .meta-tag {
+      font-size: 0.8rem;
+      color: #8d8277;
+      display: inline-block;
+      margin-top: 0.4rem;
+      background: #e9e0d6;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    /* 说明区 —— 叙述感段落 */
+    .explain-section {
+      margin: 2.2rem 0 2.8rem;
+    }
+
+    .explain-section p {
+      margin-bottom: 1.2rem;
+      text-indent: 2em;
+    }
+
+    .explain-section p:first-of-type {
+      margin-top: 0.2rem;
+    }
+
+    .quote-box {
+      background: #efe9e1;
+      padding: 1rem 1.8rem;
+      border-radius: 30px 8px 30px 8px;
+      margin: 1.6rem 0;
+      font-style: italic;
+      color: #4d443b;
+      border-left: 4px solid #b7a697;
+    }
+
+    .quote-box cite {
+      display: block;
+      text-align: right;
+      font-size: 0.85rem;
+      margin-top: 0.6rem;
+      color: #756b60;
+      font-style: normal;
+    }
+
+    /* 提示区 */
+    .tip-area {
+      background: #f2ece4;
+      padding: 1.2rem 1.8rem;
+      border-radius: 40px 8px 40px 8px;
+      margin: 2rem 0 1.8rem;
+      border-bottom: 2px solid #d6cbbc;
+    }
+
+    .tip-area strong {
+      color: #6f5e4e;
+      font-weight: 600;
+    }
+
+    .tip-area p {
+      margin: 0.4rem 0;
+    }
+
+    /* 相关信息区 */
+    .related-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed #d0c5b9;
+    }
+
+    .related-item {
+      flex: 1 1 200px;
+      background: #fcf9f5;
+      border-radius: 20px;
+      padding: 0.6rem 1.2rem 0.8rem 1.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      border: 1px solid #e7dfd5;
+    }
+
+    .related-item h4 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #6f6255;
+      border-left: 3px solid #baab99;
+      padding-left: 0.6rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .related-item p {
+      font-size: 0.85rem;
+      color: #5f574e;
+    }
+
+    .faq-mini {
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #5f5244;
+      padding: 0.3rem 0;
+      cursor: default;
+      border-bottom: 1px dotted #ddd2c5;
+    }
+
+    .faq-mini p {
+      margin: 0.4rem 0 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #958b7f;
+      border-top: 1px solid #e5dbd0;
+      padding-top: 1.5rem;
+    }
+
+    .footer-note a {
+      color: #6d5f51;
+      text-decoration: none;
+      border-bottom: 1px dotted #b6a99b;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid #6d5f51;
+    }
+
+    .inline-link {
+      color: #6d5f51;
+      text-decoration: none;
+      border-bottom: 1px dotted #b6a99b;
+    }
+
+    .inline-link:hover {
+      border-bottom: 1px solid #6d5f51;
+    }
+  </style>
+</head>
+<body>
+<div class="page-container">
+
+  <!-- hero 目录感标题 -->
+  <div class="hero">
+    <h1>推币机 · 知识库</h1>
+    <div class="sub">设备 · 机制 · 主题索引</div>
+  </div>
+
+  <!-- 目录感卡片网格：信息区 -->
+  <div class="directory-grid">
+    <div class="info-card">
+      <h3>机械构成</h3>
+      <p>推币机通常由倾斜的托盘、币道及往复推杆组成。币层堆积时，推力带动边缘币落下，形成连续出奖或掉落。</p>
+      <span class="meta-tag">基础结构</span>
+    </div>
+    <div class="info-card">
+      <h3>概率与设计</h3>
+      <p>推盘速度、币道宽度、挡板位置都会影响掉落节奏。不同厂商在推程与阻尼上各有参数积累。</p>
+      <span class="meta-tag">机制逻辑</span>
+    </div>
+    <div class="info-card">
+      <h3>场景分布</h3>
+      <p>从游戏厅、综合商场到部分主题乐园，推币机常作为轻交互设备出现，投币门槛低，停留时间长。</p>
+      <span class="meta-tag">常见场所</span>
+    </div>
+    <div class="info-card">
+      <h3>维护与调试</h3>
+      <p>传感器灵敏度、推杆行程、币层厚度是日常维护关键。定期清理币道油污可减少卡币。</p>
+      <span class="meta-tag">运营参考</span>
+    </div>
+  </div>
+
+  <!-- 说明区：叙述感展开 -->
+  <div class="explain-section">
+    <p>推币机（coin pusher）是一种依靠机械推杆将堆叠硬币或代币向前推进的设备。当币层累积到临界位置时，边缘的币会坠入奖励通道或下层收集区。整个过程的节奏由推杆往复频率、台面摩擦力与币的排列共同决定，并不存在“必胜规律”。</p>
+    <p>许多玩家在观察币层滑落瞬间获得一种近似解压的满足感，这种体验来自物理反馈的不可完全预测性。推币机并不依赖复杂电子程序，而是利用重力与摩擦的微小变化产生不同结果。因此，每一局都有细微差别，但也始终围绕机械逻辑运行。</p>
+
+    <div class="quote-box">
+      “硬币在推杆前缘堆积、滑移、坠落，本质是一种缓慢的再分配——机器没有记忆，只有当前层的状态。”
+      <cite>—— 设备调试笔记，2024</cite>
+    </div>
+
+    <p>市面上常见的推币机分为单层与多层退币结构，部分机型附带小奖品或彩票出口。无论是游艺厅里的中型机台，还是小型商用机，其核心原理都来自同一类机械范式。了解这些基础，有助于理性看待推币机的运行方式。</p>
+  </div>
+
+  <!-- 提示区 -->
+  <div class="tip-area">
+    <strong>提示：</strong>
+    <p>推币机的币层高度与推杆行程之间存在一个松散对应区间。实际运营中，定期整理币层边缘、避免过度倾斜，可以让设备保持较稳定的节奏。没有“压分技巧”能改变物理规律，但了解推杆周期与币层分布，能帮助建立合理预期。</p>
+  </div>
+
+  <!-- 相关信息区 + 迷你 FAQ -->
+  <div class="related-area">
+    <div class="related-item">
+      <h4>相关主题</h4>
+      <p>代币规格 · 推杆频率 · 奖励通道设计 · 防卡币结构</p>
+    </div>
+    <div class="related-item">
+      <h4>常见机型</h4>
+      <p>单推标准款 / 双推带奖品类 / 多层落币式</p>
+    </div>
+    <div class="related-item">
+      <h4>维护周期</h4>
+      <p>每日清理币道，每周检查推杆固定螺丝，每月校准感应器</p>
+    </div>
+  </div>
+
+  <!-- 迷你 FAQ 摘要 -->
+  <details class="faq-mini">
+    <summary>FAQ 摘要 —— 关于推币机的几个常见问题</summary>
+    <p><strong>问：推币机是否完全随机？</strong> 答：机械推币机的结果由物理状态决定，并非随机数生成器。但初始币层排列、推杆相位等因素使短期难以精确预测。</p>
+    <p><strong>问：为什么有时币掉得特别快？</strong> 答：通常因为币层已堆积到接近临界角度，或推杆行程恰好处在币堆敏感位置。属于正常机械波动。</p>
+    <p><strong>问：怎样判断设备状态？</strong> 答：观察推杆是否匀速、币道有无明显阻塞、币层是否均匀。不均匀的币层可能影响后续节奏。</p>
+  </details>
+
+  <!-- 自然嵌入链接的句子（严格满足要求） -->
+  <div style="margin: 1.8rem 0 0.2rem; font-size: 0.95rem; background: #f8f3ec; padding: 0.7rem 1.2rem; border-radius: 30px;">
+    <p>如果你对推币机的结构、调试或历史感兴趣，可以进一步了解 <a href="https://zh-coinpusher.com" class="inline-link">推币机</a> 的专题内容。那里收录了更多关于设备参数、场景案例与维护笔记的信息。</p>
+  </div>
+
+  <div class="footer-note">
+    基于机械原理与运营经验整理 · 内容仅供参考
+  </div>
+
+</div>
+</body>
+</html>
