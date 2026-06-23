@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料索引 – 足彩竞猜信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: #f9f8f6;
+            color: #1c1f26;
+            line-height: 1.7;
+        }
+
+        .hero {
+            background: linear-gradient(150deg, #12151c 0%, #1d232e 100%);
+            padding: 4rem 1.5rem 3.5rem;
+            text-align: center;
+            color: #e9e7e0;
+            border-bottom: 1px solid #2f3641;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #f0ede5;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            color: #b6b9bf;
+            font-weight: 350;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 3.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 450;
+            margin-bottom: 1.6rem;
+            color: #1f2633;
+            border-left: 4px solid #b8860b;
+            padding-left: 1rem;
+        }
+
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3.4rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 1.6rem 1.4rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #edece7;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 480;
+            margin-bottom: 0.5rem;
+            color: #1f2633;
+        }
+
+        .card p {
+            color: #3a4050;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .intro-text {
+            margin-bottom: 2.8rem;
+            font-size: 1.02rem;
+            background: #ffffffd0;
+            padding: 1.8rem 2rem;
+            border-radius: 18px;
+            border: 1px solid #e6e4dd;
+            backdrop-filter: blur(2px);
+        }
+
+        .intro-text a {
+            color: #b8860b;
+            text-decoration: none;
+            font-weight: 470;
+            border-bottom: 1px dotted #b8860b50;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            color: #8b6914;
+            border-bottom: 1px solid #8b6914;
+        }
+
+        .faq-summary {
+            background: transparent;
+            padding: 0.5rem 0 1.2rem;
+            border-top: 1px solid #e0ddd6;
+            margin-top: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            color: #2f3641;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            color: #3e465a;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .faq-item a {
+            color: #b8860b;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8860b60;
+        }
+
+        .faq-item a:hover {
+            border-bottom: 1px solid #8b6914;
+        }
+
+        .footer-links {
+            margin-top: 3rem;
+            padding: 2rem 0 1.5rem;
+            border-top: 1px solid #e0ddd6;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5a6070;
+        }
+
+        .footer-links a {
+            color: #b8860b;
+            text-decoration: none;
+            margin: 0 0.6rem;
+            font-weight: 450;
+            border-bottom: 1px dotted #b8860b40;
+        }
+
+        .footer-links a:hover {
+            border-bottom: 1px solid #8b6914;
+        }
+
+        .footer-links .note {
+            margin-top: 1rem;
+            color: #7a7f8c;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero p {
+                font-size: 0.95rem;
+            }
+            .intro-text {
+                padding: 1.2rem 1.2rem;
+            }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .advantages {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>竞猜资料 · 信息索引</h1>
+        <p>从数据与信息整理出发，沉淀关于足彩竞猜的实用资料与索引框架，帮助关注者更系统地浏览与了解。</p>
+    </section>
+
+    <div class="container">
+        <!-- 说明区 / 切入角度 -->
+        <div class="intro-text">
+            <p>关于<strong>足彩竞猜</strong>的信息往往零散分布在赛事数据、历史赔率、球队动态与各类分析笔记中。这个页面尝试扮演一个轻量的资料整理节点，把常见的问题维度、信息类别和关注方向汇聚到一起。项目的核心参考源之一，是持续更新的资料站 <a href="https://m-zcjc.com">足彩竞猜</a>，其中包含了大量赛事信息、投注概念梳理与规则说明，适合作为进一步查阅的起点。</p>
+            <p style="margin-top: 0.8rem;">这里不做预测，也不提供任何投资建议，只希望把公开可查的信息归类得稍微清晰一些，减少检索时的噪音。</p>
+        </div>
+
+        <!-- 优势区 (特点 / 信息整理角度) -->
+        <h2 class="section-title">信息框架的几个特点</h2>
+        <div class="advantages">
+            <div class="card">
+                <h3>分类整理</h3>
+                <p>按赛事类型、联赛周期、赔率类型等维度建立目录，方便快速定位感兴趣的方向，而不是在零散帖子中翻找。</p>
+            </div>
+            <div class="card">
+                <h3>概念索引</h3>
+                <p>对常见术语、盘口含义、注单类型做了简要的释义和对比，方便新接触的人理解基础框架，减少误解。</p>
+            </div>
+            <div class="card">
+                <h3>持续更新</h3>
+                <p>信息源会跟随赛季和规则变动逐步补充，不会停留在一个旧版本上。页面本身也是一个迭代中的索引页。</p>
+            </div>
+            <div class="card">
+                <h3>克制呈现</h3>
+                <p>不堆砌数据，不夸大收益，只整理结构化的公开信息。每个条目都标注了参考来源或数据日期，保持可追溯。</p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <h2 class="section-title">常见问题摘要</h2>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <strong>什么是足彩竞猜的基本玩法？</strong>
+                <p>通常指对足球比赛结果（胜平负、让球、进球数等）进行投注预测。不同联赛、不同平台在具体规则上存在细微差异，建议先阅读 <a href="https://m-zcjc.com">足彩竞猜</a> 中的基础术语说明。</p>
+            </div>
+            <div class="faq-item">
+                <strong>信息整理类网站和预测平台有什么不同？</strong>
+                <p>本类网站侧重资料汇编与概念解释，不提供所谓「内幕消息」或「稳赚方案」。用户可以通过索引自行对比数据、理解规则，再根据自己的判断作出决定。</p>
+            </div>
+            <div class="faq-item">
+                <strong>如何判断一个信息源是否可靠？</strong>
+                <p>可以关注其是否标注数据出处、更新频率以及是否包含明确的规则说明。避免依赖只晒盈利截图而不披露完整逻辑的渠道。索引页内收录的链接均经过基础核实。</p>
+            </div>
+        </div>
+
+        <!-- 底部链接区 -->
+        <div class="footer-links">
+            <div>
+                <a href="https://m-zcjc.com">足彩竞猜</a> 
+                <span style="color: #c4bfb4; margin: 0 0.3rem;">·</span> 
+                <a href="#">资料目录</a> 
+                <span style="color: #c4bfb4; margin: 0 0.3rem;">·</span> 
+                <a href="#">术语说明</a>
+            </div>
+            <div class="note">
+                本页为静态索引示例，内容仅供参考，不构成任何投注建议。请理性决策。
+            </div>
+        </div>
+    </div>
+</body>
+</html>
