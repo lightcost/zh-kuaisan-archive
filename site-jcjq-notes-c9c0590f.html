@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩足球 · 简明知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #eef6f4;
+      color: #1f2e2a;
+      line-height: 1.6;
+      padding: 1.5rem 1rem;
+      min-height: 100vh;
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem 2.5rem 1.5rem 1.5rem;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 8px 24px rgba(30, 60, 55, 0.08);
+    }
+
+    /* hero 简明区 */
+    .hero-tag {
+      display: inline-block;
+      background: #0b6b5c;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #043a30;
+      margin-bottom: 0.3rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #2b5b4f;
+      border-left: 4px solid #0b6b5c;
+      padding-left: 1rem;
+      margin: 0.5rem 0 2rem 0;
+    }
+
+    /* 卡片网格 —— 目录感 */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.8rem;
+      padding: 1.5rem 1.3rem;
+      box-shadow: 0 4px 12px rgba(8, 80, 68, 0.06);
+      border: 1px solid #d7e9e3;
+      transition: transform 0.15s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #87c7b8;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0b5f50;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #2a403a;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #0b6b5c;
+      font-weight: bold;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    .badge {
+      background: #dcf0ea;
+      color: #115b4a;
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* 说明区 + 提示区 合并行 */
+    .info-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      background: #f5fcf9;
+      padding: 1.6rem 1.8rem;
+      border-radius: 2rem;
+      margin: 2rem 0 1.8rem;
+      border: 1px solid #b7d9cf;
+    }
+
+    .info-block {
+      flex: 1 1 200px;
+    }
+
+    .info-block h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #095a49;
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid #8fc7b9;
+      display: inline-block;
+      padding-bottom: 0.15rem;
+    }
+
+    .info-block p, .info-block li {
+      font-size: 0.9rem;
+      color: #1f3f37;
+    }
+
+    .info-block ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.3rem;
+    }
+
+    .info-block ul li {
+      padding: 0.2rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .info-block ul li::before {
+      content: "•";
+      color: #1d7f68;
+      font-weight: bold;
+    }
+
+    /* 相关区 — FAQ 摘要风格 */
+    .faq-mini {
+      margin: 1.8rem 0 1rem;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #c6ddd4;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #05473b;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .faq-q::before {
+      content: "Q";
+      background: #0b6b5c;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .faq-a {
+      margin: 0.3rem 0 0 1.9rem;
+      color: #2f5549;
+      font-size: 0.9rem;
+    }
+
+    .faq-a a {
+      color: #0b6b5c;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+
+    .faq-a a:hover {
+      color: #043a30;
+    }
+
+    .footnote {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #d2e5dd;
+      font-size: 0.85rem;
+      color: #4d6f64;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .footnote a {
+      color: #115b4a;
+      text-decoration: none;
+      border-bottom: 1px dotted;
+    }
+
+    .footnote a:hover {
+      color: #043a30;
+    }
+
+    /* 移动端响应 */
+    @media (max-width: 700px) {
+      .page-wrap {
+        padding: 1.5rem 1rem;
+        border-radius: 1.8rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .info-panel {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.2rem;
+      }
+
+      .badge-list {
+        gap: 0.4rem;
+      }
+
+      .faq-q::before {
+        width: 1.3rem;
+        height: 1.3rem;
+        font-size: 0.65rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 0.5rem;
+      }
+      .page-wrap {
+        padding: 1rem 0.8rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      .subhead {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <!-- hero -->
+  <div class="hero-tag">📘 知识库 · 简明指南</div>
+  <h1>竞彩足球<br>从入门到参阅</h1>
+  <div class="subhead">围绕赛程、数据与机制整理的基础信息页</div>
+
+  <!-- 网格卡片：目录感内容 -->
+  <div class="grid-2col">
+    <div class="card">
+      <h3>📋 基础须知</h3>
+      <p>竞彩足球以国际主流联赛及杯赛为竞猜对象，每场比赛包含胜平负、让球胜平负、比分、总进球、半全场等多种玩法。开售前会公示对阵、编号、让球数及固定奖金。</p>
+      <div class="badge-list">
+        <span class="badge">胜平负</span>
+        <span class="badge">让球</span>
+        <span class="badge">比分</span>
+        <span class="badge">总进球</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📅 赛程与数据</h3>
+      <ul>
+        <li>每日更新竞猜场次，周末及大赛期间场次增多</li>
+        <li>赔率动态变化，受投注额及赛事信息影响</li>
+        <li>可关注球队状态、伤停、交锋记录等参考因素</li>
+        <li>官方停售时间为开赛前一段时间（通常5–10分钟）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🧭 使用场景</h3>
+      <p>适合赛前研究、临场分析、以及复盘查看。用户可在此类页面积累经验，理解不同玩法的逻辑。注意：比赛结果以官方最终公告为准。</p>
+      <p style="margin-top:0.6rem;">信息整理自公开数据，建议多渠道交叉比对。</p>
+    </div>
+
+    <div class="card">
+      <h3>📌 快速参考</h3>
+      <ul>
+        <li>让球盘：主队“-1”表示主队让一球</li>
+        <li>比分玩法：竞猜全场（含伤停补时）具体比分</li>
+        <li>半全场：分别猜上半场及全场胜平负</li>
+        <li>单关/串关：部分场次支持单关，其余需2场起串</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 说明区 + 提示区  -->
+  <div class="info-panel">
+    <div class="info-block">
+      <h4>📖 说明</h4>
+      <p>本页为竞彩足球相关知识整理入口，提供玩法定义、基础规则及常见查询方向。内容力求准确，但不构成投注建议。更完整的官方解释与实时数据请查阅对应信息源。</p>
+    </div>
+    <div class="info-block">
+      <h4>⚠️ 提醒</h4>
+      <ul>
+        <li>竞猜前请确认场次编号、让球数及截止时间</li>
+        <li>理性参与，量力而行</li>
+        <li>结果以彩票票面及官方开奖为准</li>
+        <li>未成年人不得参与</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h4>🔗 相关信息</h4>
+      <ul>
+        <li>赛事数据参考</li>
+        <li>玩法说明文档</li>
+        <li>赔率变动示例</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要区  -->
+  <div class="faq-mini">
+    <div class="faq-item">
+      <div class="faq-q">什么是让球胜平负？</div>
+      <div class="faq-a">让球胜平负是在胜平负基础上加入“虚拟让球”后的玩法。例如主队让1球，最终比分2-0则视为“主胜”，1-0则视为“平”（减去让球后1-1），0-0则视为“主负”。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">如何查询竞彩足球的完整对阵？</div>
+      <div class="faq-a">通常可通过官方渠道或授权信息平台获取每日对阵表。我们推荐参考 <a href="https://site-jcjq.com">竞彩足球</a> 的整合信息，便于快速浏览。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">串关最多可以选几场？</div>
+      <div class="faq-a">一般情况下，竞彩足球串关上限为8场（含8场），且所选玩法必须一致（如全部选胜平负或全部选让球胜平负）。部分特殊玩法可能有限制，请以页面提示为准。</div>
+    </div>
+  </div>
+
+  <!-- 底部  -->
+  <div class="footnote">
+    <span>内容整理 · 仅供知识参考</span>
+    <span><a href="https://site-jcjq.com">竞彩足球</a>  ·  信息聚合</span>
+    <span>© 简明说明页</span>
+  </div>
+</div>
+</body>
+</html>
